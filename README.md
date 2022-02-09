@@ -1,4 +1,4 @@
-# CI/CD Templates for Several Projects
+# CI/CD Templates and snippets for several projects
 
 - [Cerbot folder](./certbot) has a script to renew ssl certs
 
