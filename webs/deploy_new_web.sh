@@ -2,8 +2,8 @@
 HOME="/home/ubuntu/wordpress"
 # ${1} es PROJECT
 # ${2} es PREFIX
-DB_USER=<the_user>
-DB_PASS=<the_pass>
+DB_USER="<the_user>"
+DB_PASS="<the_pass>"
 DB_HOST="db:3306"
 
 if [ ! -d $HOME/webs/"$1" ]; then
