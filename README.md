@@ -1,6 +1,6 @@
 # CI/CD Templates for Several Projects
 
-- [Cerbot folder](./cerbot) has a script to renew ssl certs
+- [Cerbot folder](./certbot) has a script to renew ssl certs
 
 - [Cloud folder](./cloud) has Gitlab CI/CD piplenes to deploy wordpress sites
 
