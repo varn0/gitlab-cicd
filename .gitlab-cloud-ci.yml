@@ -1,0 +1,48 @@
+stages:
+ - deploy
+
+before_script:
+  - 'command -v ssh-agent >/dev/null || ( apt update -y && apt install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+
+deploy_webs_utils:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - scp -P 4022 webs/* ${TEST_SERVER}:/home/ubuntu/wordpress/utils
+    - ssh -p 4022 ${TEST_SERVER} "chmod +x ./wordpress/utils/*.sh"
+  only:
+    changes:
+      - webs/*
+
+deploy_service1_scripts:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - scp -P 4022 service1/*.sh ${TEST_SERVER}:/home/ubuntu/service1/
+    - scp -P 4022 service1/docker-compose.yml ${TEST_SERVER}:/home/ubuntu/service1/
+    - ssh -p 4022 ${TEST_SERVER} "chmod +x ./service1/*.sh"
+  only:
+    changes:
+      - service1/*.sh
+      - 'docker-compose.yml'
+
+deploy_service2:
+  stage: deploy
+  tags:
+    - shell
+  script:
+    - scp -P 4022 service2/api_remote/* ${TEST_SERVER}:/home/ubuntu/service2/api_remote/
+    - scp -P 4022 service2/*.sh ${TEST_SERVER}:/home/ubuntu/service2/
+    - ssh -p 4022 ${TEST_SERVER} "chmod +x ./service2/*.sh"
+  only:
+    changes:
+      - service2/api_remote/*
+      - service2/*.sh

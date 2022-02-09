@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+  project:
+    image: wordpress:5.1.1-fpm-alpine
+#    image: project:1.0
+    container_name: project
+    restart: unless-stopped
+    environment:
+      - WORDPRESS_DB_HOST=db:3306
+      - WORDPRESS_DB_USER=<the_user>
+      - WORDPRESS_DB_PASSWORD=<the_pass>
+      - WORDPRESS_DB_NAME=project
+      - WORDPRESS_TABLE_PREFIX=wp_
+    volumes:
+      - ../webs/project:/var/www/project
+      - ../uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
+    networks:
+      - wordpress-net
+      - router-net
+
+networks:
+  wordpress-net:
+    external: true
+  router-net:
+    external: true

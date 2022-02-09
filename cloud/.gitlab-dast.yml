@@ -1,0 +1,21 @@
+dast:
+  stage: test
+
+  variables:
+    CI_DEBUG_TRACE: "true"
+#    DOCKER_TLS_CERTDIR: ''
+#    DOCKER_DRIVER: overlay2
+#    DOCKER_HOST: tcp://localhost:2377
+  tags:
+    - docker
+  image: owasp/zap2docker-stable
+  script:
+    - mkdir /zap/wrk/
+    - /zap/zap-baseline.py -J gl-dast-report.json -t ${URL} || true
+    - cp /zap/wrk/gl-dast-report.json .
+  artifacts:
+    paths: [gl-dast-report.json]
+  rules:
+    - if: '$AUTO_DAST_JOB == "false"'
+      when: manual
+      allow_failure: true
