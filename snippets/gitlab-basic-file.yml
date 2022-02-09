@@ -1,0 +1,11 @@
+
+variables:
+  PROJECT: "proyecto"
+  PREFIX: 'wp'
+  AUTO_DAST_JOB: "false"
+  URL: 'http://proyecto.companyxyz.com'
+  DEPLOY_DB: "true"
+
+include:
+  - project: 'devops/templates'
+    file: 'cloud_webs_ci/gitlab-project.yml'
