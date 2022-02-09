@@ -15,17 +15,17 @@ El ingeniero DevOps gestiona los cambios en los pipelines de todos los proyectos
 
 El pipeline cuenta con varias etapas, preparacion, despligue, pruebas de seguridad y pruebas de rendimiento.
 
-Preparacion:
+**Preparacion:**
 - Solo se lanza para desplegar una nueva web
 - Tiene un job que lanza el script [deploy_new_web.sh](webs/deploy_new_web.sh)
 
-Despliegue:
+**Despliegue:**
 - Cuenta con dos jobs, uno para desplegar el codigo y otro para desplegar la base de datos (se constrola su lanzamiento con la varibale `DEPLOY_DB`)
 
-Pruebas de seguridad:
+**Pruebas de seguridad:**
 - Tiene un solo job que utiliza la herramienta OWASP ZAP para lanzar un escaneo de vulnerabilidades sobre la web
 - Devuelve el reporte en formato JSON en un artefacto 
 
-Pruebas de rendimiento:
+**Pruebas de rendimiento:**
 - Tiene un solo job basado en el template que propone Gitlab para las pruebas de rendimiento
 - TODO configurarlo para que haga crawling de la web y lance el performance test sobre todas las paginas del sitio
