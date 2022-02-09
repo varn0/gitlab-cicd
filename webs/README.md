@@ -1,4 +1,4 @@
-# Web PALCO. Proyecto WordPress.
+# Proyecto WordPress.
 
 ## Ramas
 La rama master se usa como rama de liberación, por lo que cada proyecto se crea con este README.md en la rama master y el primer commit se realiza a la rama llamada **develop** donde se mezclarán regularmente las n ramas que existan.
@@ -37,7 +37,7 @@ sitemap.xml.gz
 
 ### Lista de exclusion
 
-Para desplegar las web a produccion se usa el comando ```rsync``` y para evitar que se copien en el server archivos 
+Para desplegar las web se usa el comando ```rsync``` y para evitar que se copien en el server archivos 
 innecesarios se debe incluir en el proyecto el archivo exclude-list.txt con el siguiente contenido.
 
 ```
@@ -67,7 +67,7 @@ variables:
 
 include:
   - project: 'devops/templates'
-    file: 'cloud_webs_ci/gitlab-webs.yml'
+    file: 'cloud_webs_ci/wp-webs-ci.yml'
 ```
 
 ## Requisitos de los proyectos

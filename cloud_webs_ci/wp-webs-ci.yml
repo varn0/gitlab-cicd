@@ -2,7 +2,7 @@ stages:
   - preparation
   - deploy
   - performance
-#  - test
+  - test
 
 
 before_script:
@@ -60,9 +60,9 @@ deploy_db:
       - $DEPLOY_DB == "true"
 
 
-# include:
-#   - project: 'devops/templates'
-#     file: 'cloud/.gitlab-test-performance.yml'
+include:
+  - project: 'devops/templates'
+    file: 'cloud/gitlab-test-performance.yml'
 
-#  - project: 'devops/templates'
-#    file: 'cloud/.gitlab-dast.yml'
+  - project: 'devops/templates'
+    file: 'cloud/gitlab-dast.yml'

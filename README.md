@@ -1,9 +1,12 @@
-# CI/CD Templates and snippets for several projects
+# CI/CD para un Software Shop
 
-- [Cerbot folder](./certbot) has a script to renew ssl certs
+Repositorio para gestionar la integracion continua y el despliegue continuo de un Software Shop que produce sitios WordPress (WP).
 
-- [Cloud folder](./cloud) has Gitlab CI/CD piplenes to deploy wordpress sites
 
-- [Snippets folder](./snippets) has bash scripts to automate wordpress sites deployments
+## Flujo de Trabajo
+
+El desarrollador sube el repositorio de su proyecto WP siguiendo las [instrucciones](webs/README.md) de la carpeta web. En el archivo `.gitlab-ci.yml` de su proyecto el desarrollador puede controlar si se actualiza o no la base de datos con la variable   `DEPLOY_DB`.
+
+![Alt text](./images/WP_development.drawio.svg)
+
   
-- [Webs folder](./webs) has more scripts and configurations files used to deploy wordpress sites

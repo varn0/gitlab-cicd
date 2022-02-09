@@ -3,7 +3,7 @@ variables:
   PROJECT: "proyecto"
   PREFIX: 'wp'
   AUTO_DAST_JOB: "false"
-  URL: 'http://proyecto.companyxyz.com'
+  URL: 'https://proyecto.companyxyz.com'
   DEPLOY_DB: "true"
 
 include:
