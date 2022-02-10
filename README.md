@@ -31,3 +31,9 @@ El pipeline cuenta con varias etapas, preparacion, despligue, pruebas de segurid
 - TODO configurarlo para que haga crawling de la web y lance el performance test sobre todas las paginas del sitio
 
 > **NOTA:** En Medium escribí un breve [artículo](https://ajanerom.medium.com/the-include-keyword-in-gitlab-pipelines-and-how-it-helped-me-bd167159cfdf) sobre cómo el uso del feature `include` de Gitlab CI/CD ayuda a organizar el trabajo.
+
+## Infraestructura
+
+La infraestrucura del entorno de prueba esta basada en contenedores docker. En un archivo `docker-compose` se gestionan los servicios de `nginx` y `mysql` y luego cada servicio `wordpress-fpm` se gestiona en un archivo independiente.
+
+![Infraestructura](images/WP_development-Infrastructure.drawio.svg)
