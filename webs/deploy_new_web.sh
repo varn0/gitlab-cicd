@@ -50,7 +50,6 @@ cp $HOME/utils/nginx.conf /home/ubuntu/router/vhosts/"$1".conf
 sed -i "s#project#$1#g" /home/ubuntu/router/vhosts/"$1".conf
 docker exec -i nginx nginx -s reload
 
-# crear registro en el DNS
-# todavia no puedo hacerlo
-# hello, hello
+# TODO crear registro en el DNS
+
 

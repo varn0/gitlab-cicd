@@ -29,3 +29,5 @@ El pipeline cuenta con varias etapas, preparacion, despligue, pruebas de segurid
 **Pruebas de rendimiento:**
 - Tiene un solo job basado en el template que propone Gitlab para las pruebas de rendimiento
 - TODO configurarlo para que haga crawling de la web y lance el performance test sobre todas las paginas del sitio
+
+> **NOTA:** En Medium escribí un breve [artículo](https://ajanerom.medium.com/the-include-keyword-in-gitlab-pipelines-and-how-it-helped-me-bd167159cfdf) sobre cómo el uso del feature `include` de Gitlab CI/CD ayuda a organizar el trabajo.
